@@ -22,8 +22,8 @@
         <div class="col-xs-10 col-md-4 col-xs-offset-1 col-md-offset-0 AlignItemsNavbar">
           <ul class = "nav navbar-nav">
             <li><a class = "navbar-link text-center" href="#">Home</a></li>
-            <li><a class = "navbar-link text-center" href="#">Catalogo</a></li>
-            <li><a class = "navbar-link text-center" href="#">Carrito</a></li>
+            <li ng-if="vm.authService.isUser"><a class = "navbar-link text-center" href="#">Catalogo</a></li>
+            <li ng-if="vm.authService.isAdmin()"><a class = "navbar-link text-center" href="#">Carrito</a></li>
           </ul>
         </div>
         <div class="col-xs-12 col-md-6">
