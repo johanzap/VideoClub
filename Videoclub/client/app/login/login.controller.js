@@ -7,13 +7,7 @@ class LoginComponent {
     this.authService = authService;
   }
   login(){
-    this.authService.login(this.user).$promise
-    .then(response =>{
-      console.log(response);
-    })
-    .catch(err =>{
-      console.log(err);
-    })
+    this.authService.login(this.user);
   }
 }
 LoginComponent.inject = ['authService'];

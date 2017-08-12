@@ -9,7 +9,8 @@ class UsuariosListComponent {
   $onInit(){
     this.usuariosService.query().$promise
     .then(response =>{
-      console.log(response);
+      this.usuarios = response;
+      console.log(this.usuarios);
     })
     .catch(err =>{
       console.log(err);
@@ -21,7 +22,7 @@ angular.module('videoclubApp')
   .component('usuariosList', {
     templateUrl: 'app/usuarios/usuarios-list/usuarios-list.html',
     controller: UsuariosListComponent,
-    controllerAs: 'usuariosListCtrl'
+    controllerAs: 'vm'
   });
 
 })();

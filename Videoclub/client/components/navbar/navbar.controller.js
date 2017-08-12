@@ -1,10 +1,9 @@
 'use strict';
 
 class NavbarController {
-  //start-non-standard
-  
-
-
+  constructor(authService){
+    this.authService = authService;
+  }
 }
 
 angular.module('videoclubApp')

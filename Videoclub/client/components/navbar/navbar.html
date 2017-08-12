@@ -8,7 +8,8 @@
         <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMenu">
           &#9776;
         </button>
-        <a href="#" class="Login hidden-xs">Login</a>
+        <a ui-sref="login" class="Login hidden-xs">Login</a>
+        <a ng-click="vm.authService.logout()" href="#" class="Login hidden-xs">Logout</a>
       </div>
     </div>
   </div>

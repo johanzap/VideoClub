@@ -2,7 +2,9 @@
 
 function authService($auth,$state) {
 	var Auth = {
-    login: login
+    login: login,
+		isAuthenticated:isAuthenticated,
+		logout:logout
   };
 
   function login(user){
@@ -16,6 +18,24 @@ function authService($auth,$state) {
 			console.log('Error al loguearse');
 		})
   }
+
+	function logout(){
+		if(Auth.isAuthenticated()){
+			$auth.logout()
+			.then(response =>{
+				$state.go('main');
+				console.log('Ha cerado sesion');
+			})
+		}
+	}
+
+	function isAuthenticated(){
+		if($auth.isAuthenticated){
+			return true;
+		}else{
+			false
+		}
+	}
 
   return Auth;
 }
