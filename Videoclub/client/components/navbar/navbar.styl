@@ -10,9 +10,13 @@
   font-weight bold
   font-size 20px
   text-transform uppercase
-.Header-container
+.Header-container, .InfoContainer
   background-color #99c84a
   color white
+.Header-container .navbar-toggle
+  color white
+  font-weight bold
+  font-size 25px
 .Header-containerAlignV
   display flex
   align-items center
@@ -23,6 +27,8 @@
   font-size 20px
 input.form-control:focus
   border-color #99c84a
+.NavbarMargin
+  margin-bottom 0
 .navbar-nav >li >a
   color #263636
 .Menu-container
@@ -32,3 +38,11 @@ input.form-control:focus
   color white
 .btn.Btn-adsi:hover
   background-color #99c884a
+.MarginTopSearch
+  margin-top 11px
+  margin-bottom  1em
+@media (max-width: 992px){
+  .MaringSearchMain{
+    margin-bottom 1em
+  }
+}
