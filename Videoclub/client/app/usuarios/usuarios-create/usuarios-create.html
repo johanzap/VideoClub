@@ -1,14 +1,18 @@
 <div class= "form-group">This is the usuarios-create view.</div>
 
 <form  name="userForm" ng-submit="vm.createUser()">
+
   <div class="">
   <label for="">Tipo Documento</label>
-	<input type="text" ng-model="vm.usuario.tipoDocumento.id">
+	<select class="" name="" ng-model="vm.usuario.tipoDocumento.id">
+	  <option ng-repeat="item in vm.tiposDocumentos" ng-value="{{item.id}}">{{item.descripcion}}</option>
+	</select>
   </div>
 
   <div class="">
 	<label for="">Documento</label>
-	<input type="text" ng-model="vm.usuario.numDocumento">
+	<input type="text" ng-model="vm.usuario.numDocumento" ng-blur="vm.validarNumDocumento()">
+  <p ng-show="vm.validarNumeroDocumento">El documento ya se encuentra registrado</p>
   </div>
 
   <div class="">
@@ -17,13 +21,14 @@
   </div>
 
   <div class="">
-	<label for="">Nombres</label></div>>
+	<label for="">Nombres</label>
 	<input type="text" ng-model="vm.usuario.nombres">
   </div>
 
   <div class="">
 	<label for="">Email</label>
-	<input type="text" ng-model="vm.usuario.email">
+	<input type="text" ng-model="vm.usuario.email" ng-blur="vm.validarCorreo()">
+  <p ng-show="vm.validarEmail">El email ya se encuentra registrado</p>
   </div>
 
   <div class="">

@@ -1,7 +1,7 @@
 'use strict';
 
 function usuariosService(API,$resource) {
-  return $resource(API+'/usuarios:id',{
+  return $resource(API+'/usuarios/:id',{
     id:'@id'
   },{
     update:{

@@ -1,3 +1,4 @@
+
 'use strict';
 
 angular.module('videoclubApp', ['videoclubApp.constants', 'ngCookies', 'ngResource', 'ngSanitize',
