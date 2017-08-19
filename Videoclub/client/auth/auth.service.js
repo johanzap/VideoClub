@@ -22,7 +22,7 @@ function authService($auth,$state) {
   }
 
 	function logout(){
-		if(Auth.isAuthenticated()){
+		if($auth.isAuthenticated()){ //$auth
 			$auth.logout()
 			.then(response =>{
 				$state.go('main');
@@ -32,15 +32,15 @@ function authService($auth,$state) {
 	}
 
 	function isAuthenticated(){
-		if($auth.isAuthenticated){
+		if($auth.isAuthenticated()){ //isAuthenticated()
 			return true;
 		}else{
-			false
+			return false;
 		}
 	}
 
 	function isAdmin(){
-		if(Auth.isAuthenticated){
+		if(Auth.isAuthenticated()){
 			if($auth.getPayload().roles.indexOf("ADMIN") !== -1){
 				return true;
 		}else{
