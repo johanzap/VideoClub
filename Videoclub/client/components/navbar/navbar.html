@@ -9,7 +9,8 @@
           <!-- &#9776; -->
           <i class="fa fa-bars"></i>
         </button>
-        <a ui-sref="login" class="Login hidden-xs">Login</a>
+        <a ui-sref="login" ng-show="!vm.authService.isAuthenticated()" class="Login hidden-xs">Login</a>
+        <a ng-click="vm.authService.logout()" ng-show="vm.authService.isAuthenticated()" class="Login hidden-xs">Logout</a>
         <!-- a ng-click="vm.authService.logout()" href="#" class="Login hidden-xs">Logout</a -->
       </div>
     </div>

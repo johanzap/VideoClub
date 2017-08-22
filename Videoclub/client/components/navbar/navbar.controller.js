@@ -1,11 +1,11 @@
 'use strict';
 
 class NavbarController {
-  /*constructor(authService){
+  constructor(authService){
     this.authService = authService;
-    this.mostrar = true;
+    /*this.mostrar = true;*/
   }
-  ocultarMenu(){
+/*  ocultarMenu(){
     if(this.mostrar == false){
       this.mostrar = true;
     }else{

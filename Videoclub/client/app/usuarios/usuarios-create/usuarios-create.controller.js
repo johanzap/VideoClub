@@ -2,10 +2,13 @@
 (function(){
 
 class UsuariosCreateComponent {
-  constructor(usuariosService, $state,tiposDocumentosService) {
+  constructor(usuariosService, $state,tiposDocumentosService, ciudadesService, departamentosService) {
     this.usuariosService = usuariosService;
     this.tiposDocumentosService = tiposDocumentosService;
+    this.ciudadesService = ciudadesService;
+    this.departamentosService = departamentosService;
     this.$state = $state;
+    this.mostrarCiudades = false;
     this.usuario = {
       activo:true
     };
@@ -20,6 +23,25 @@ class UsuariosCreateComponent {
     .catch(err =>{
       console.log(err);
     })
+
+    this.departamentosService.query().$promise
+    .then(response =>{
+    this.departamentos = response;
+    })
+    .catch(err =>{
+      console.log(err);
+    })
+  }
+  getCiudades(){
+    this.ciudadesService.getCiudades({idDepartamento:this.idDepartamento}).$promise
+    .then(response =>{
+      this.ciudades = response;
+    })
+    .catch(err =>{
+      console.log(err);
+    })
+
+    this.mostrarCiudades = true;
   }
   createUser(){
     console.log(this.usuario);
@@ -40,7 +62,7 @@ class UsuariosCreateComponent {
       console.log("Valida ",response);
       this.validarNumeroDocumento = true;
       console.log(response.length);
-      if(this.usuario.numDocumento == undefined || response.length <= 0){
+      if(this.usuario.numDocumento == undefined || response.length == 0){
         this.validarNumeroDocumento = false;
       }
     })
@@ -55,7 +77,7 @@ class UsuariosCreateComponent {
       console.log("Valida ",response);
       this.validarEmail = true;
       console.log(response.length);
-      if(this.usuario.email == undefined || response.length <= 0){
+      if(this.usuario.email == undefined || response.length == 0){
         this.validarEmail = false;
       }
     })
